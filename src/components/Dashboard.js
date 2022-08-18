@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Dashboard = () => {
     const [allFilms, setAllFilms] = useState();
@@ -12,25 +12,28 @@ const Dashboard = () => {
         });
     }
 
-    if(allFilms == null) {
+    useEffect(() => {
         getData();
+    }, [])
+    
+    if(allFilms == null) {
         return <div className="bg-black text-white">
             <h1> Pleses wait some time.... </h1>
         </div>
     }
     else
     {
+        console.log(allFilms);
         return (
             <div>
                 {allFilms.results.map((item, i) => {
                     return(
                         <>
-                            <a href="#" key={i} className="block p-6 bg-black border hover:bg-gray-700 ">
-                                <h5  key={i} className="mb-2 text-2xl font-bold text-white">{item.title}</h5>
-                                <p key={i} className="font-normal text-gray-700 text-yellow-400">{item.opening_crawl}</p>
+                            <a href={"#"} id={"episode_"+item.episode_id} key={item.episode_id} className="block p-6 bg-black border hover:bg-gray-900 ">
+                                <h5 key={item.episode_id} className="mb-2 text-2xl font-bold text-white">{item.title}</h5>
+                                <p key={item.episode_id} className="font-normal text-gray-700 text-yellow-400">{item.opening_crawl}</p>
                             </a>
                         </>
-                        // <h1 key={i}>item</h1>
                     )
                 })}
             </div>
