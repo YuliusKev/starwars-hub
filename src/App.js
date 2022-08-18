@@ -3,6 +3,8 @@ import { Routes, Route } from "react-router-dom"
 import Header from './components/Header';
 import Dashboard from './components/Dashboard';
 import Characters from './components/Characters'
+import MovieDetail from './components/MovieDetail'
+import CharDetail from './components/CharDetail'
 
 function App() {
   return (
@@ -11,8 +13,8 @@ function App() {
       <Routes>
         <Route path="/" element={ <Dashboard/> } />
         <Route path="characters" element={ <Characters/> } />
-        {/* <Dashboard /> */}
-        {/* <Characters/> */}
+        <Route path="movie-detail/:id" element={ <MovieDetail/> } />
+        <Route path="characters/character-detail/:id" element={ <CharDetail/> } />
       </Routes>
     </div>
   );
