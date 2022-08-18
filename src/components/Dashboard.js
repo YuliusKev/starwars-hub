@@ -14,7 +14,7 @@ const Dashboard = () => {
 
     if(allFilms == null) {
         getData();
-        return <div>
+        return <div className="bg-black text-white">
             <h1> Pleses wait some time.... </h1>
         </div>
     }
