@@ -1,14 +1,17 @@
 import { useState, useEffect } from "react";
 import {
     useParams,
+    useLocation 
   } from "react-router-dom";
 
 const CharDetail = () => {
-    const { id } = useParams();
+    const location = useLocation()
+    const { api } = location.state
+
     const [charData, setCharData] = useState();
 
     const getData = () => {
-        const url = `https://swapi.dev/api/people/${id}`
+        const url = api
         console.log(url)
         fetch(url)
         .then((response) => response.json())
