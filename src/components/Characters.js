@@ -7,8 +7,7 @@ const Dashboard = () => {
 
     const getData = () => {
         const url = `https://swapi.dev/api/people?page=${pageNumber}`
-        fetch(url)
-        .then((response) => response.json())
+        fetch(url).then((response) => response.json())
         .then((response) => {
             const newCharacter = response.results;
             
